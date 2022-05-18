@@ -1,0 +1,53 @@
+.inicio{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    flex-direction: column;
+}
+.banner{
+    margin-top: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    img{
+        height: 350px;
+        width: 100%;
+    }
+
+}
+.info{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin-top: 150px;
+    width: 100%;
+    justify-content: space-around;
+}
+.mapa{
+
+    iframe{
+        &:hover{
+            transform: scale(1.20);
+            transition: all 0.7s;
+        }
+    }
+    p{
+        text-transform: uppercase;
+        text-align: center;
+        font-size: 20px;
+    }
+}
+.envios{
+    iframe{
+        &:hover{
+            transform: scale(1.20);
+            transition: all 0.7s;
+        }
+    }
+    p{
+        text-transform: uppercase;
+        text-align: center;
+        font-size: 20px;
+    }
+}

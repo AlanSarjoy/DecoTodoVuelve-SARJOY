@@ -1,0 +1,16 @@
+.navbar{
+    width: 100%;
+    display: flex;
+    background-color: $color1;
+    font-size: 20px;
+    justify-content: space-between;
+    
+    a{
+        &:hover{
+            color: $colorH2;
+        }
+    }
+}
+.logo{
+    height: 75px;
+}

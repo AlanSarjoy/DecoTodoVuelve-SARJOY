@@ -1,0 +1,36 @@
+footer{
+    display: flex;
+    flex-wrap: wrap;
+    height: auto;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 40px;
+    background-color: $color1;
+    color: $colorH1;
+}
+.icon{
+    font-size: 35px;
+    color: $colorH1;
+    padding: 20px;
+
+    &:hover{
+        color: $colorH2;
+        transition: all 0.7s;
+    }
+}
+.copyright{
+    flex-wrap: wrap;
+    margin: 15px;
+    font-size: 15px;
+    width: 100%;
+    text-align: center;
+}
+
+.redes{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+
+}
+
+
