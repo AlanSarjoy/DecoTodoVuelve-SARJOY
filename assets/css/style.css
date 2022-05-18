@@ -236,6 +236,12 @@ footer {
   border-radius: 7px;
 }
 
+@media (max-width: 480px) {
+  .tarjetas img {
+    height: 80px;
+  }
+}
+
 .GalleryPreview__text--underline {
   display: -webkit-box;
   display: -ms-flexbox;
