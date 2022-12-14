@@ -1,82 +1,128 @@
-let usuario = prompt("Bienvenido a DecoTodoVuele, ingrese su usuario:");
+let carts = document.querySelectorAll(".btn");
 
-function saludar (usuario) {
-  alert("Hola" + " "+ usuario);
+let products = [
+    {
+        nombre: "mesa de galeria",
+        precio: 249600,
+        carrito: 0
+    },
+    {
+        nombre: "mesa titan",
+        precio: 450000,
+        carrito: 0
+    },
+    {
+        nombre: "mesa cuadrada pinotea",
+        precio: 179750,
+        carrito: 0
+    },
+    {
+        nombre: "mesa cuadrada con pata bocha",
+        precio: 79850,
+        carrito: 0
+    },
+    {
+        nombre: "mesa rustica de galeria",
+        precio: 159750,
+        carrito: 0
+    },
+    {
+        nombre: "mesa comedor diario reciclado",
+        precio: 219750,
+        carrito: 0
+    },
+    {
+        nombre:"mesa laurel patas en x",
+        precio: 59000,
+        carrito:0
+    },
+    {
+        nombre: "mesa baja con ruedas y tres cajones",
+        precio: 84250,
+        carrito: 0
+    },
+    {
+        nombre: "mesa de luz woodie vale",
+        precio: 68900,
+        carrito: 0
+    },
+    {
+        nombre: "mesa de apoyo pinotea",
+        precio: 33650,
+        carrito: 0
+    },
+    {
+        nombre: "mesita de apoyo",
+        precio: 19700,
+        carrito: 0
+    },
+    {
+        nombre: "mesa baja laurel",
+        precio: 22750,
+        carrito: 0
+    },
+];
+
+for(let i=0; i < carts.length; i++) {
+    carts[i].addEventListener("click", () =>{
+        cartNumbers(products[i]);
+        costoTotal(products[i]);
+    })
 }
 
-
-saludar(usuario);
-
-
-function pago(cuota) {
-  alert("Tu producto sale" + " " + "$" + cuota);
-}
-let producto = prompt(
-  "Ingresa una opción \n 1-Mesa de galeria \n 2-Mesa titan \n 3-Mesa cuadrada pinotea \n 4-Mesa baja Laurel \n 5-Mesa cuadrada con pata \n 6-Mesa rustica de galeria \n 7-Mesa comedor diario reciclado \n 8-Mesa laurel patas en X \n 9-Mesa baja con ruedas y tres cajones \n 10-Mesa de luz woodie vale \n 11-Mesa de apoyo pinotea \n 12-Mesita de apoyo"
-);
-if (producto == 1) {
-  precio = 32000;
-  console.log(precio);
-} else if (producto == 2) {
-  precio = 18000;
-  console.log(precio);
-} else if (producto == 3) {
-  precio = 18000;
-  console.log(precio);
-} else if (producto == 4) {
-  precio = 14500;
-  console.log(precio);
-} else if (producto == 5) {
-  precio = 12800;
-  console.log(precio);
-} else if (producto == 6) {
-  precio = 25000;
-  console.log(precio);
-} else if (producto == 7) {
-  precio = 30000;
-  console.log(precio);
-} else if (producto == 8) {
-  precio = 10000;
-  console.log(precio);
-} else if (producto == 9) {
-  precio = 23000;
-  console.log(precio);
-} else if (producto == 10) {
-  precio = 8800;
-  console.log(precio);
-} else if (producto == 11) {
-  precio = 9900;
-  console.log(precio);
-} else {
-  alert("No seleccionaste un producto existente");
+function productosEnCarrito(){
+    let productNumbers = localStorage.getItem("cartNumbers");
+    if(productNumbers){
+        document.querySelector(".cart span").textContent = productNumbers;
+    }
 }
 
-let formadepago = prompt(
-  "Ingresa una opción \n 1-efectivo \n 2-transferencia bancaria \n 3-mercado pago "
-);
-if (formadepago == 1) {
-  cuota = precio;
-  console.log(cuota);
-} else if (formadepago == 2) {
-  cuota = precio * 1.1;
-  console.log(cuota);
-} else if (formadepago == 3) {
-  cuota = precio * 1.3;
-  console.log(cuota);
-} else {
-  alert("No elegiste ningun metodo de pago");
-  let formadepago = prompt(
-    "Ingresa una opción \n 1-efectivo \n 2-transferencia bancaria \n 3-mercado pago"
-  );
-  if (formadepago == 1) {
-    cuota = precio;
-    console.log(cuota);
-  } else if (formadepago == 2) {
-    cuota = precio * 1.1;
-    console.log(cuota);
-  } else if (formadepago == 3) {
-    cuota = precio * 1.3;
-    console.log(cuota);
-  }
+function cartNumbers(producto){
+    let productNumbers = localStorage.getItem("cartNumbers");
+
+    productNumbers = parseInt(productNumbers);
+
+    if(productNumbers){
+        localStorage.setItem("cartNumbers", productNumbers + 1);
+        document.querySelector(".cart span").textContent = productNumbers + 1;
+    }else {
+        localStorage.setItem("cartNumbers", 1);
+        document.querySelector(".cart span").textContent = 1;
+    }
+    setItem(producto);
 }
-pago(cuota);
+
+function setItem(producto) {
+    let carritoItems = localStorage.getItem("productosEnCarrito");
+    carritoItems = JSON.parse(carritoItems);
+
+    if(carritoItems != null){
+        if(carritoItems[producto.nombre] == undefined){
+            carritoItems = {
+                ...carritoItems,
+                [producto.nombre]: producto
+            }
+        }
+        carritoItems[producto.nombre].carrito += 1;
+    }else {
+        producto.carrito = 1;
+        carritoItems = {
+            [producto.nombre]: producto
+        }
+    }
+    localStorage.setItem("productosEnCarrito", JSON.stringify(carritoItems));
+}
+
+function costoTotal(producto){
+    let costoCarrito = localStorage.getItem("costoTotal");
+
+    if(costoCarrito != null){
+        costoCarrito = parseInt(costoCarrito);
+        localStorage.setItem("costoTotal", costoCarrito + producto.precio);
+    }else{
+        localStorage.setItem("costoTotal", producto.precio);
+    }
+    
+}
+
+productosEnCarrito();
