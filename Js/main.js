@@ -61,6 +61,126 @@ let products = [
         precio: 22750,
         carrito: 0
     },
+    {
+        nombre: "silla moderna reciclada",
+        precio: 13200,
+        carrito: 0
+    },
+    {
+        nombre: "silla cabecera toledo con estirilla",
+        precio: 16230,
+        carrito: 0
+    },
+    {
+        nombre: "silla vestida recta lino",
+        precio: 10100,
+        carrito: 0
+    },
+    {
+        nombre: "silla vestida f",
+        precio: 9800,
+        carrito: 0
+    },
+    {
+        nombre: "silla london",
+        precio: 17000,
+        carrito: 0
+    },
+    {
+        nombre: "silla francesa",
+        precio: 15600,
+        carrito: 0
+    },
+    {
+        nombre: "silla de descanso",
+        precio: 8899,
+        carrito: 0
+    },
+    {
+        nombre: "banqueta cuadrada con respaldo",
+        precio: 12200,
+        carrito: 0
+    },
+    {
+        nombre: "banqueta francesa con mariposas",
+        precio: 7900,
+        carrito: 0
+    },
+    {
+        nombre: "silla cabecera esterillada",
+        precio: 11200,
+        carrito: 0
+    },
+    {
+        nombre: "acapulco sur",
+        precio: 6700,
+        carrito: 0
+    },
+    {
+        nombre: "silla jack",
+        precio: 23200,
+        carrito: 0
+    },
+    {
+        nombre: "sofá tokyo",
+        precio: 289000,
+        carrito: 0
+    },
+    {
+        nombre: "sillon esquinero italia",
+        precio: 297000,
+        carrito: 0
+    },
+    {
+        nombre: "sofá ingles reciclado",
+        precio: 189000,
+        carrito: 0
+    },
+    {
+        nombre: "sofá torino",
+        precio: 189000,
+        carrito: 0
+    },
+    {
+        nombre: "sillon estocolmo",
+        precio: 175000,
+        carrito: 0
+    },
+    {
+        nombre: "sillon esquinero phanton",
+        precio: 210000,
+        carrito: 0
+    },
+    {
+        nombre: "silloncito velvet",
+        precio: 99100,
+        carrito: 0
+    },
+    {
+        nombre: "sillon bkf",
+        precio: 110000,
+        carrito: 0
+    },
+    {
+        nombre: "sillon de sala frances- luis xv",
+        precio: 55000,
+        carrito: 0
+    },
+    {
+        nombre: "camastro galeria x3",
+        precio: 230000,
+        carrito: 0
+    },
+    {
+        nombre: "butaca net",
+        precio: 46000,
+        carrito: 0
+    },
+    {
+        nombre: "silloncito outdoor",
+        precio: 88000,
+        carrito: 0
+    },
 ];
 
 for(let i=0; i < carts.length; i++) {
@@ -71,20 +191,20 @@ for(let i=0; i < carts.length; i++) {
 }
 
 function productosEnCarrito(){
-    let productNumbers = localStorage.getItem("cartNumbers");
-    if(productNumbers){
-        document.querySelector(".cart span").textContent = productNumbers;
+    let cantidadProductos = localStorage.getItem("cartNumbers");
+    if(cantidadProductos){
+        document.querySelector(".cart span").textContent = cantidadProductos;
     }
 }
 
 function cartNumbers(producto){
-    let productNumbers = localStorage.getItem("cartNumbers");
+    let cantidadProductos = localStorage.getItem("cartNumbers");
 
-    productNumbers = parseInt(productNumbers);
+    cantidadProductos = parseInt(cantidadProductos);
 
-    if(productNumbers){
-        localStorage.setItem("cartNumbers", productNumbers + 1);
-        document.querySelector(".cart span").textContent = productNumbers + 1;
+    if(cantidadProductos){
+        localStorage.setItem("cartNumbers", cantidadProductos + 1);
+        document.querySelector(".cart span").textContent = cantidadProductos + 1;
     }else {
         localStorage.setItem("cartNumbers", 1);
         document.querySelector(".cart span").textContent = 1;
@@ -125,4 +245,33 @@ function costoTotal(producto){
     
 }
 
+function carritoDisplay(){
+    let carritoItems = localStorage.getItem("productosEnCarrito");
+    carritoItems = JSON.parse(carritoItems);
+    let productoContainer = document.querySelector(".productos");
+    let costoCarrito = localStorage.getItem("costoTotal");
+
+    if(carritoItems && productoContainer){
+        productoContainer.innerHTML = "";
+        Object.values(carritoItems).map(item => {
+            productoContainer.innerHTML += `
+                <div class"producto">
+                    <ion-icon name="close-circle-outline"></ion-icon>
+                    <img src="/imagenes/${item.tag}.jpg"></img>
+                    <span>${item.nombre}</span>
+                </div>
+                <div class"precio">$${item.precio},00</div>
+                <div class"cantidad">
+                    <ion-icon name="chevron-back-circle-outline"></ion-icon>
+                    <span>${item.carrito}</span>
+                    <ion-icon name="chevron-forward-circle-outline"></ion-icon>
+                </div>
+                <div class"total">
+                    $${item.carrito * item.precio},00
+                </div>
+            `;
+        });
+    }
+}
 productosEnCarrito();
+carritoDisplay();

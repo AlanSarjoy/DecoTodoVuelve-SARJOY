@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<!----------- HEAD --------------->
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--descripción-->
+    <meta name="description" content="DecoTodoVuelve, un sitio con los mejores muebles para tu hogar">
+    <!--KEYWORDS-->
+    <meta name="keywords" content="Muebles de diseño, DecoTodoVuelve, sillones, sillas, mesas, hogar">
+    <title>DecoTodoVuelve</title>
+    <!--BOOTSTRAP-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+        integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <!--MIS ESTILOS-->
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+    <!--FAVICON-->
+    <link rel="icon" type="image/x-icon" href="logo/favicon.png.png">
+    <script src="https://kit.fontawesome.com/6fe3eae81d.js" crossorigin="anonymous"></script>
+    <!-- JavaScript-->
+</head>
+
+<body>
+    <header>
+        <!-- Comienzo navbar-->
+        <nav class="navbar navbar-expand-md navbar-dark">
+            <!-- Brand -->
+            <a class="navbar-brand" href="index.html"><img class="logo" src="logo/decologo.jpg" alt="logo"></a>
+            <!-- Toggler/collapsibe Button -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- Navbar links -->
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="mesas.html">Mesas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="sillas.html">Sillas</a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="sillones.html">Sillones</a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="contacto.html">Contacto</a>
+                    </li>
+                    <li class="cart">
+                        <a class="nav-link cart" href="carrito.html">
+                            <ion-icon name="cart-outline"></ion-icon>Carrito<span>0</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <!--Fin navbar-->
+    </header>
+
+    <div class="producto-container">
+        <div class="producto-encabezado">
+            <h5 class="producto-titulo">PRODUCTO</h5>
+            <h5 class="precio">PRECIO</h5>
+            <h5 class="cantidad">CANTIDAD</h5>
+            <h5 class="total">TOTAL</h5>
+        </div>
+        <div class="productos"></div>
+    </div>
+
+    <div class="GalleryPreview__text--underline"></div>
+    <!--------------------------------------FOOTER----------------------------------------------------------------->
+    <footer>
+        <strong class="copyright">Alan Sarjoy - 2022 Copyright © Todos los derechos reservados - Política de
+            privacidad.</strong>
+        <div class="redes">
+            <a href="https://www.facebook.com/decotodovuelve/"><i class="icon fa-brands fa-facebook"></i></a>
+            <a href="https://twitter.com/"><i class="icon fa-brands fa-twitter"></i></a>
+            <a href="https://www.instagram.com/decotodovuelve/"><i class="icon fa-brands fa-instagram"></i></a>
+        </div>
+    </footer>
+    <!--------------------------------------FIN FOOTER----------------------------------------------------------------->
+    <!--JVSCRIPT BOOTSTRAP-->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2" crossorigin="anonymous"></script>
+    <script src="/Js/main.js"> </script>
+</body>
+</html>
